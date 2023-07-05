@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5" method="upgrade">
+    <name>Live Stream Informer</name> 
+    <creationDate>12.09.2013</creationDate>
+    <author>Ametov S.I.</author>
+    <authorEmail>ametovsi@gmail.com</authorEmail>
+    <authorUrl>http://mmotimes.ru</authorUrl>
+    <copyright>© 2013. MMOTIMES.RU. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <version>1.0.6</version>
+    <description>Модуль оповещения и показа активных стрим трансляций с сайта twitch.tv (justin.tv)</description>
+    <files>
+        <filename module="mod_live_stream_informer">mod_live_stream_informer.php</filename>
+        <filename>mod_live_stream_informer.xml</filename>
+        <filename>index.html</filename>	
+        <filename>helper.php</filename>
+        <filename>ajax.php</filename>					
+        <folder>tmpl</folder>
+        <folder>js</folder>
+        <folder>css</folder>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="id_channels" type="textarea" rows="5" cols="30" default="mmotimesru" label="Идентификаторы"  description="Идентификаторы стрим каналов вводить через пробел. Пример: mmotimes wartunder GoblinTechies" size="30" />
+                <field name="display_ch" type="list" default="0" label="Неактивные каналы" description="Отображать в модуле каналы, которые имеют статус Offline">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="char" type="text" default="0" label="Количество символов" description="Количество символов в названии канала. 0 - не сокращать название канала" size="2" />
+                <field name="local" type="list" default="1" label="Расположение библиотек" description="Расположение подключаемых библиотек и стилей jQuery. Внешние версии снижают нагрузку на ваш сервер.">
+                    <option value="0">Локальная версия</option>
+                    <option value="1">Внешняя версия от googleapis.com</option>
+                </field>
+                <field name="width" type="text" default="600" label="Ширина окна плейера (px)" description="Ширина окна плейера в px" size="2" />
+                <field name="height" type="text" default="400" label="Высота окна плейера (px)" description="Высота окна плейера в px" size="2" />
+                <field name="effects" type="list" default="blind" label="Анимация" description="Эффект появления окна плейера">
+                    <option value="blind">Blind</option>
+                    <option value="bounce">Bounce</option>
+                    <option value="clip">Clip</option>
+                    <option value="drop">Drop</option>
+                    <option value="explode">Explode</option>
+                    <option value="fold">Fold</option>
+                    <option value="highlight">Highlight</option>
+                    <option value="pulsate">Pulsate</option>
+                    <option value="shake">Shake</option>
+                    <option value="slide">Slide</option>
+                </field>
+                <field name="theme" type="list" default="0" label="Скин" description="Тема оформления модуля">
+                    <option value="0">Classic</option>
+                    <option value="1">Bootstrap</option>
+                    <option value="2">Darkness</option>
+                    <option value="3">Lightness</option>
+                </field> 
+                 <field name="typeplayer" type="list" default="0" label="Версия плейера" description="Версия плейера для отображения трансляций">
+                    <option value="0">FLASH</option>
+                    <option value="1">HTML5</option>
+                </field>               
+            </fieldset>
+            <fieldset name="advanced">
+                <field name="layout" type="list" default="default"
+                    label="Шаблон" description="The layout to display the link">
+                   <option value="default">Вертикальный</option>
+                </field>
+                <field
+                    name="moduleclass_sfx"
+                    type="text"
+                    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                    description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+                <field name="cache" type="list"
+                    default="0"
+                    label="COM_MODULES_FIELD_CACHING_LABEL"
+                    description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>            
+  <updateservers>
+    <server type="extension" priority="2" name="Live Stream Informer Update">http://mmotimes.ru/static/lsi/live-stream-informer-update.xml</server>
+  </updateservers>
+</extension>
